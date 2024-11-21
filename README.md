@@ -1,40 +1,67 @@
 # Configuração react com reactstrap
 
 
-## Passos Realizados
 
-1. **Configuração do Bootstrap no projeto**:
-   - No arquivo `src/index.js`, foi adicionei a seguinte linha para importar o CSS do Bootstrap:
-     ```javascript
-     import 'bootstrap/dist/css/bootstrap.min.css';
-     ```
+## Configuração do Bootstrap no projeto
 
-3. **Adicionando uma barra de navegação (Navbar)**:
-   - No arquivo `src/App.js`, foi adicionado o seguinte código para criar a barra de navegação:
-     ```javascript
-     import React from 'react';
-     import { Navbar, NavbarBrand } from 'reactstrap';
+No arquivo `src/index.js`, foi adicionada a seguinte linha para aplicar os estilos globais do Bootstrap:
 
-     function App() {
-       return (
-         <div className="App">
-           <Navbar dark color="primary">
-             <div className="container">
-               <NavbarBrand href="/">Ristorante Con Fusion</NavbarBrand>
-               <div>Aluno: Seu Nome Aqui</div>
-             </div>
-           </Navbar>
-         </div>
-       );
-     }
+```javascript
+import 'bootstrap/dist/css/bootstrap.min.css';
+```
 
-     export default App;
-     ```
+Isso garante que todos os componentes do Reactstrap sigam o estilo visual do Bootstrap.
+
+---
+
+## Adicionando uma Barra de Navegação
+
+No arquivo `src/App.js`, adicionamos o seguinte código:
+
+```javascript
+import React from 'react';
+import { Navbar, NavbarBrand } from 'reactstrap';
+
+function App() {
+  return (
+    <div className="App">
+      <Navbar dark color="primary">
+        <div className="container">
+          <NavbarBrand href="/">Ristorante Con Fusion</NavbarBrand>
+          <div>Aluno: Pedro</div>
+        </div>
+      </Navbar>
+    </div>
+  );
+}
+
+export default App;
+```
+
+### Explicação do Código:
+- **Navbar**: Cria uma barra de navegação estilizada com Bootstrap.
+  - Propriedade `dark`: Aplica cores escuras ao texto.
+  - Propriedade `color="primary"`: Define o fundo com a cor principal do Bootstrap (azul).
+- **NavbarBrand**: Mostra o nome ou logo da aplicação e o link para a página inicial.
+- **div**: Incluímos o nome do aluno para personalização.
+
+---
+
+## Atualização do README.md
+
+O arquivo README foi atualizado com:
+1. **Resumo dos passos realizados**.
+2. **Imagem do resultado**.
 
 
-## Imagem do Resultado
 
-![Navbar com nome](<src\Captura de tela 2024-11-21 203713.png>)
+---
+
+## Resultado Final
+
+Após seguir os passos, sua barra de navegação deve ficar assim:
+
+![Navbar com nome](![Navbar com nome](<src/Captura de tela 2024-11-21 203713.png>))
 
 
 # Getting Started with Create React App
