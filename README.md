@@ -61,7 +61,7 @@ O arquivo README foi atualizado com:
 
 Após seguir os passos, sua barra de navegação deve ficar assim:
 
-![Navbar com nome](![Navbar com nome](<src/Captura de tela 2024-11-21 203713.png>))
+![Navbar com nome](<src/Captura de tela 2024-11-21 203713.png>)
 
 
 # Getting Started with Create React App
