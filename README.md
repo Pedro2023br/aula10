@@ -1,3 +1,42 @@
+# Configuração react com reactstrap
+
+
+## Passos Realizados
+
+1. **Configuração do Bootstrap no projeto**:
+   - No arquivo `src/index.js`, foi adicionei a seguinte linha para importar o CSS do Bootstrap:
+     ```javascript
+     import 'bootstrap/dist/css/bootstrap.min.css';
+     ```
+
+3. **Adicionando uma barra de navegação (Navbar)**:
+   - No arquivo `src/App.js`, foi adicionado o seguinte código para criar a barra de navegação:
+     ```javascript
+     import React from 'react';
+     import { Navbar, NavbarBrand } from 'reactstrap';
+
+     function App() {
+       return (
+         <div className="App">
+           <Navbar dark color="primary">
+             <div className="container">
+               <NavbarBrand href="/">Ristorante Con Fusion</NavbarBrand>
+               <div>Aluno: Seu Nome Aqui</div>
+             </div>
+           </Navbar>
+         </div>
+       );
+     }
+
+     export default App;
+     ```
+
+
+## Imagem do Resultado
+
+![Navbar com nome](<src\Captura de tela 2024-11-21 203713.png>)
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
