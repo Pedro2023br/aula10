@@ -1,18 +1,11 @@
-import logo from './logo.svg';
-import { Navbar, NavbarBrand } from 'reactstrap';
+import React from 'react';
 import './App.css';
+import Menu from './components/MenuComponent'; // Importa o componente Menu
 
 function App() {
   return (
     <div className="App">
-    
- <Navbar dark color="primary">
- <div className="container">
- <NavbarBrand href="/">Ristorante Con Fusion</NavbarBrand>
- <div>Aluno: Pedro</div>
- </div>
- </Navbar>
-   
+      <Menu />
     </div>
   );
 }
