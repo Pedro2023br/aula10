@@ -1,136 +1,74 @@
-# Configuração react com reactstrap
 
+# Menu Dinâmico com React (Aula 10)
 
+## Breve descrição das alterações feitas na aula
 
-## Configuração do Bootstrap no projeto
+- Implementação de um menu dinâmico usando **React** e **reactstrap**.
+- Exibição de pratos em formato de cartão (Card).
+- Funcionalidade para selecionar um prato e exibir seus detalhes.
 
-No arquivo `src/index.js`, foi adicionada a seguinte linha para aplicar os estilos globais do Bootstrap:
+## MenuComponent.js
 
-```javascript
-import 'bootstrap/dist/css/bootstrap.min.css';
-```
+**Breve descrição:** Este arquivo contém o componente que exibe a lista de pratos e os detalhes do prato selecionado.
 
-Isso garante que todos os componentes do Reactstrap sigam o estilo visual do Bootstrap.
+### Respostas às perguntas
 
----
+1. **Quais os imports utilizados? (breve explicação)**
+   - `useState`: Gerencia o estado do prato selecionado.
+   - Componentes do **reactstrap**:
+     - `Card`, `CardImg`, `CardImgOverlay`, `CardText`, `CardBody`, `CardTitle`: Exibem os pratos e seus detalhes em um formato visual estilizado.
 
-## Adicionando uma Barra de Navegação
+2. **Há componentes? O que fazem?**
+   - Sim, o principal componente é o `Menu`, que:
+     - Renderiza a lista de pratos.
+     - Exibe os detalhes do prato selecionado.
 
-No arquivo `src/App.js`, adicionamos o seguinte código:
+3. **Para que serve o `onDishSelect` no projeto?**
+   - Atualiza o estado `selectedDish` com o prato clicado pelo usuário.
 
-```javascript
-import React from 'react';
-import { Navbar, NavbarBrand } from 'reactstrap';
+4. **Para que serve o `renderDish`?**
+   - Renderiza os detalhes do prato selecionado em um componente `Card`. Se nenhum prato estiver selecionado, retorna um elemento vazio.
 
-function App() {
-  return (
-    <div className="App">
-      <Navbar dark color="primary">
-        <div className="container">
-          <NavbarBrand href="/">Ristorante Con Fusion</NavbarBrand>
-          <div>Aluno: Pedro</div>
-        </div>
-      </Navbar>
-    </div>
-  );
-}
-
-export default App;
-```
-
-### Explicação do Código:
-- **Navbar**: Cria uma barra de navegação estilizada com Bootstrap.
-  - Propriedade `dark`: Aplica cores escuras ao texto.
-  - Propriedade `color="primary"`: Define o fundo com a cor principal do Bootstrap (azul).
-- **NavbarBrand**: Mostra o nome ou logo da aplicação e o link para a página inicial.
-- **div**: Incluímos o nome do aluno para personalização.
+5. **Para que serve o `props.dishes.map`?**
+   - Itera sobre a lista de pratos (`dishes`) para renderizar um card para cada prato.
 
 ---
 
-## Atualização do README.md
+## dishes.js
 
-O arquivo README foi atualizado com:
-1. **Resumo dos passos realizados**.
-2. **Imagem do resultado**.
+**Breve descrição:** Este arquivo contém a lista de pratos, com todas as informações necessárias para exibi-los.
 
+### Respostas às perguntas
 
+1. **Quais as propriedades?**
+   - `id`: Identificador único do prato.
+   - `name`: Nome do prato.
+   - `image`: Caminho da imagem do prato.
+   - `category`: Categoria do prato (ex.: `mains`, `appetizer`).
+   - `label`: Rótulo do prato (ex.: `Hot`, `New`).
+   - `price`: Preço do prato.
+   - `description`: Breve descrição do prato.
+   - `comments`: Lista de comentários com:
+     - `rating`: Nota dada ao prato.
+     - `comment`: Texto do comentário.
+     - `author`: Autor do comentário.
+     - `date`: Data do comentário.
+
+2. **Que tipo de date é utilizado?**
+   - Datas no formato ISO, como `2012-10-16T17:57:28.556094Z`.
 
 ---
 
-## Resultado Final
+## App.js
 
-Após seguir os passos, sua barra de navegação deve ficar assim:
+**Breve descrição:** Este arquivo contém a estrutura principal do aplicativo e integra os componentes.
 
-![Navbar com nome](<src/Captura de tela 2024-11-21 203713.png>)
+### Respostas às perguntas
 
+1. **Para que serve o `const [dishes]`?**
+   - Armazena a lista de pratos (`DISHES`) utilizando o `useState`, permitindo o gerenciamento de estado.
 
-# Getting Started with Create React App
+2. **Explicar como funciona o `<Menu dishes={dishes} />`:**
+   - Passa a lista de pratos como uma propriedade (`props`) para o componente `Menu`, permitindo que este renderize os pratos dinamicamente.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
-## Available Scripts
-
-In the project directory, you can run:
-
-### `npm start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+---
